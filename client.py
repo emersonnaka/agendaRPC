@@ -63,8 +63,8 @@ def run():
         print('3 - Consultar contato')
         print('4 - Listar todos os contatos')
         print('5 - Sair')
-        option = input('Option: ');
-
+        option = input('Option: ')
+        
         if option == 1:
             person = inputPerson()
             response = stub.addPerson(person)
@@ -75,7 +75,7 @@ def run():
 
         elif option == 4:
             contactslist = []
-            contactslist = stub.listContacts(True)
+            contactslist = stub.listContacts(agenda_pb2.ContactsRequest(listContacts = True))
             print(contactslist)
 
 
