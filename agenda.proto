@@ -1,0 +1,53 @@
+// python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. agenda.proto
+syntax = "proto2";
+
+service Manager {
+    rpc AddPerson(Person) returns (BooleanReply) {}
+    rpc DelPerson(PersonId) returns (BooleanReply) {}
+    rpc SearchPersonName(PersonName) returns (stream AddressBook) {}
+    rpc SearchPersonId(PersonId) returns (PersonReply) {}
+    rpc ListContacts(ContactsRequest) returns (stream AddressBook) {}
+}
+
+message Person {
+    required string name = 1;
+    required int32 id = 2;
+    optional string email = 3;
+
+    enum PhoneType {
+        MOBILE = 0;
+        HOME = 1;
+        WORK = 2;
+    }
+
+    message PhoneNumber {
+        required string number = 1;
+        optional PhoneType type = 2 [default = HOME];
+    }
+
+    repeated PhoneNumber phones = 4;
+}
+
+message PersonId {
+    required int32 id = 1;
+}
+
+message PersonName {
+    required string name = 1;
+}
+
+message AddressBook {
+    repeated Person people = 1;
+}
+
+message PersonReply {
+    required Person person = 1;
+}
+
+message BooleanReply {
+    required bool reply = 1;
+}
+
+message ContactsRequest {
+    required bool listContacts = 1;
+}
