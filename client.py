@@ -45,11 +45,13 @@ def inputPerson():
         person.email = email
     phone = person.phones.add()
     phone.number = raw_input('Telefone de contato: ')
-    type = raw_input('Mobile = 0, Home = 1, Work = 2: ')
-    if type != '':
-        phone.type = type;
+    typeNumber = input('Mobile = 0, Home = 1, Work = 2: ')
+    if typeNumber == 0:
+        phone.type = agenda_pb2.Person.MOBILE
+    elif typeNumber == 1:
+        phone.type = agenda_pb2.Person.HOME
     else:
-        phone.type = 2
+        phone.type = agenda_pb2.Person.WORK
     return person
 
 def run():
@@ -75,8 +77,9 @@ def run():
 
         elif option == 4:
             contactslist = []
-            contactslist = stub.listContacts(agenda_pb2.ContactsRequest(listContacts = True))
-            print(contactslist)
+            contactslist.append(stub.listContacts(agenda_pb2.ContactsRequest(listContacts = True)))
+            for person in contactslist:
+                print(person)
 
 
   # response = stub.SayHello(helloworld_pb2.HelloRequest(name='you'))

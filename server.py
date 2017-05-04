@@ -51,14 +51,14 @@ class Manager(agenda_pb2_grpc.ManagerServicer):
         if request.id not in self.contactsList:
             print(request)
             self.contactsList.append(request)
-            return agenda_pb2.BooleanReply(True)
-        return agenda_pb2.BooleanReply(False)
+            return agenda_pb2.BooleanReply(reply = True)
+        return agenda_pb2.BooleanReply(reply = False)
 
     def delPerson(self, request, context):
         if request in self.contactsList:
             self.contactsList.remove(request)
-            return True
-        return False
+            return agenda_pb2.BooleanReply(reply = True)
+        return agenda_pb2.BooleanReply(reply = False)
 
     def searchPersonName(self, request, context):
         response = []
@@ -73,7 +73,8 @@ class Manager(agenda_pb2_grpc.ManagerServicer):
         return None
 
     def listContacts(self, request, context):
-        return self.contactsList
+        for person in self.contactsList:
+            yield person
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
