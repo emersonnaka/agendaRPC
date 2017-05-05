@@ -43,15 +43,18 @@ def inputPerson():
     email = input('Email: ')
     if email != '':
         person.email = email
-    phone = person.phones.add()
-    phone.number = input('Telefone de contato: ')
-    typeNumber = int(input('Mobile = 0, Home = 1, Work = 2: '))
-    if typeNumber == 0:
-        phone.type = agenda_pb2.Person.MOBILE
-    elif typeNumber == 1:
-        phone.type = agenda_pb2.Person.HOME
-    else:
-        phone.type = agenda_pb2.Person.WORK
+    otherPhone = 's'
+    while otherPhone.lower() == 's':
+        phone = person.phones.add()
+        phone.number = input('Telefone de contato: ')
+        typeNumber = int(input('Mobile = 0, Home = 1, Work = 2: '))
+        if typeNumber == 0:
+            phone.type = agenda_pb2.Person.MOBILE
+        elif typeNumber == 1:
+            phone.type = agenda_pb2.Person.HOME
+        else:
+            phone.type = agenda_pb2.Person.WORK
+        otherPhone = input('Deseja inserir outro contato (s/n): ').lower()
     return person
 
 def run():

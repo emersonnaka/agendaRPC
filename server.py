@@ -62,9 +62,8 @@ class Manager(agenda_pb2_grpc.ManagerServicer):
         return agenda_pb2.BooleanReply(reply = False)
 
     def SearchPersonName(self, request, context):
-        response = []
         for person in self.contactsList.values():
-            if request.name in person.name:
+            if request.name.lower() in person.name.lower():
                 yield person
 
     def SearchPersonId(self, request, context):
