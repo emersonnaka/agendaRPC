@@ -86,6 +86,8 @@ def run():
             response = stub.SearchPersonId(agenda_pb2.PersonId(id = identifier))
             if response != None:
                 print(response)
+        elif option == 4:
+            print('Implementar')
         elif option == 5:
             contactslist = stub.ListContacts(agenda_pb2.ContactsRequest(listContacts = True))
             print(contactslist)

@@ -69,8 +69,8 @@ class Manager(agenda_pb2_grpc.ManagerServicer):
         return response;
 
     def SearchPersonId(self, request, context):
-        if request in self.contactsList:
-            return agenda_pb2.PersonReply(person = self.contactsList[request])
+        if request.id in self.contactsList:
+            return agenda_pb2.PersonReply(person = self.contactsList[request.id])
         return None
 
     def ListContacts(self, request, context):
