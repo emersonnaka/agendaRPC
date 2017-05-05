@@ -38,14 +38,14 @@ import agenda_pb2_grpc
 
 def inputPerson():
     person = agenda_pb2.Person()
-    person.name = raw_input('Nome: ')
-    person.id = input('ID: ')
-    email = raw_input('Email: ')
+    person.name = input('Nome: ')
+    person.id = int(input('ID: '))
+    email = input('Email: ')
     if email != '':
         person.email = email
     phone = person.phones.add()
-    phone.number = raw_input('Telefone de contato: ')
-    typeNumber = input('Mobile = 0, Home = 1, Work = 2: ')
+    phone.number = input('Telefone de contato: ')
+    typeNumber = int(input('Mobile = 0, Home = 1, Work = 2: '))
     if typeNumber == 0:
         phone.type = agenda_pb2.Person.MOBILE
     elif typeNumber == 1:
@@ -59,25 +59,36 @@ def run():
     stub = agenda_pb2_grpc.ManagerStub(channel)
     option = 0
 
-    while option != 5:
+    while option != 6:
         print('1 - Adicionar contato')
         print('2 - Remover contato')
-        print('3 - Consultar contato')
-        print('4 - Listar todos os contatos')
-        print('5 - Sair')
-        option = input('Option: ')
+        print('3 - Consultar contato pelo ID')
+        print('4 - Consultar contatos pelo nome')
+        print('5 - Listar todos os contatos')
+        print('6 - Sair')
+        option = int(input('Option: '))
         
         if option == 1:
             person = inputPerson()
-            response = stub.addPerson(person)
-            if response:
+            if stub.AddPerson(person):
                 print('Contato inserido com sucesso!')
             else:
                 print('Falhou')
-
-        elif option == 4:
-            contactslist = []
-            contactslist.append(stub.listContacts(agenda_pb2.ContactsRequest(listContacts = True)))
+        elif option == 2:
+            identifier = int(input('Insira o id do contato: '))
+            response = stub.DelPerson(agenda_pb2.PersonId(id = identifier))
+            if response:
+                print('Contato removido com sucesso!')
+            else:
+                print('Falhou')
+        elif option == 3:
+            identifier = int(input('Insira o id do contato: '))
+            response = stub.SearchPersonId(agenda_pb2.PersonId(id = identifier))
+            if response != None:
+                print(response)
+        elif option == 5:
+            contactslist = stub.ListContacts(agenda_pb2.ContactsRequest(listContacts = True))
+            print(contactslist)
             for person in contactslist:
                 print(person)
 

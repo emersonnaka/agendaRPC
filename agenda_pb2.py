@@ -18,8 +18,8 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='agenda.proto',
   package='',
-  syntax='proto2',
-  serialized_pb=_b('\n\x0c\x61genda.proto\"\xc9\x01\n\x06Person\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\n\n\x02id\x18\x02 \x02(\x05\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12#\n\x06phones\x18\x04 \x03(\x0b\x32\x13.Person.PhoneNumber\x1a\x44\n\x0bPhoneNumber\x12\x0e\n\x06number\x18\x01 \x02(\t\x12%\n\x04type\x18\x02 \x01(\x0e\x32\x11.Person.PhoneType:\x04HOME\"+\n\tPhoneType\x12\n\n\x06MOBILE\x10\x00\x12\x08\n\x04HOME\x10\x01\x12\x08\n\x04WORK\x10\x02\"\x16\n\x08PersonId\x12\n\n\x02id\x18\x01 \x02(\x05\"\x1a\n\nPersonName\x12\x0c\n\x04name\x18\x01 \x02(\t\"&\n\x0b\x41\x64\x64ressBook\x12\x17\n\x06people\x18\x01 \x03(\x0b\x32\x07.Person\"&\n\x0bPersonReply\x12\x17\n\x06person\x18\x01 \x02(\x0b\x32\x07.Person\"\x1d\n\x0c\x42ooleanReply\x12\r\n\x05reply\x18\x01 \x02(\x08\"\'\n\x0f\x43ontactsRequest\x12\x14\n\x0clistContacts\x18\x01 \x02(\x08\x32\xed\x01\n\x07Manager\x12%\n\taddPerson\x12\x07.Person\x1a\r.BooleanReply\"\x00\x12\'\n\tdelPerson\x12\t.PersonId\x1a\r.BooleanReply\"\x00\x12\x31\n\x10searchPersonName\x12\x0b.PersonName\x1a\x0c.AddressBook\"\x00\x30\x01\x12+\n\x0esearchPersonId\x12\t.PersonId\x1a\x0c.PersonReply\"\x00\x12\x32\n\x0clistContacts\x12\x10.ContactsRequest\x1a\x0c.AddressBook\"\x00\x30\x01')
+  syntax='proto3',
+  serialized_pb=_b('\n\x0c\x61genda.proto\"\xc3\x01\n\x06Person\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\x05\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12#\n\x06phones\x18\x04 \x03(\x0b\x32\x13.Person.PhoneNumber\x1a>\n\x0bPhoneNumber\x12\x0e\n\x06number\x18\x01 \x01(\t\x12\x1f\n\x04type\x18\x02 \x01(\x0e\x32\x11.Person.PhoneType\"+\n\tPhoneType\x12\n\n\x06MOBILE\x10\x00\x12\x08\n\x04HOME\x10\x01\x12\x08\n\x04WORK\x10\x02\"\x16\n\x08PersonId\x12\n\n\x02id\x18\x01 \x01(\x05\"\x1a\n\nPersonName\x12\x0c\n\x04name\x18\x01 \x01(\t\"&\n\x0b\x41\x64\x64ressBook\x12\x17\n\x06person\x18\x01 \x03(\x0b\x32\x07.Person\"&\n\x0bPersonReply\x12\x17\n\x06person\x18\x01 \x01(\x0b\x32\x07.Person\"\x1d\n\x0c\x42ooleanReply\x12\r\n\x05reply\x18\x01 \x01(\x08\"\'\n\x0f\x43ontactsRequest\x12\x14\n\x0clistContacts\x18\x01 \x01(\x08\x32\xed\x01\n\x07Manager\x12%\n\tAddPerson\x12\x07.Person\x1a\r.BooleanReply\"\x00\x12\'\n\tDelPerson\x12\t.PersonId\x1a\r.BooleanReply\"\x00\x12\x31\n\x10SearchPersonName\x12\x0b.PersonName\x1a\x0c.AddressBook\"\x00\x30\x01\x12+\n\x0eSearchPersonId\x12\t.PersonId\x1a\x0c.PersonReply\"\x00\x12\x32\n\x0cListContacts\x12\x10.ContactsRequest\x1a\x0c.AddressBook\"\x00\x30\x01\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -46,8 +46,8 @@ _PERSON_PHONETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=175,
-  serialized_end=218,
+  serialized_start=169,
+  serialized_end=212,
 )
 _sym_db.RegisterEnumDescriptor(_PERSON_PHONETYPE)
 
@@ -61,7 +61,7 @@ _PERSON_PHONENUMBER = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='number', full_name='Person.PhoneNumber.number', index=0,
-      number=1, type=9, cpp_type=9, label=2,
+      number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -69,7 +69,7 @@ _PERSON_PHONENUMBER = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='type', full_name='Person.PhoneNumber.type', index=1,
       number=2, type=14, cpp_type=8, label=1,
-      has_default_value=True, default_value=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -81,12 +81,12 @@ _PERSON_PHONENUMBER = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=105,
-  serialized_end=173,
+  serialized_end=167,
 )
 
 _PERSON = _descriptor.Descriptor(
@@ -98,14 +98,14 @@ _PERSON = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='name', full_name='Person.name', index=0,
-      number=1, type=9, cpp_type=9, label=2,
+      number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='id', full_name='Person.id', index=1,
-      number=2, type=5, cpp_type=1, label=2,
+      number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -133,12 +133,12 @@ _PERSON = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=17,
-  serialized_end=218,
+  serialized_end=212,
 )
 
 
@@ -151,7 +151,7 @@ _PERSONID = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='id', full_name='PersonId.id', index=0,
-      number=1, type=5, cpp_type=1, label=2,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -164,12 +164,12 @@ _PERSONID = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=220,
-  serialized_end=242,
+  serialized_start=214,
+  serialized_end=236,
 )
 
 
@@ -182,7 +182,7 @@ _PERSONNAME = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='name', full_name='PersonName.name', index=0,
-      number=1, type=9, cpp_type=9, label=2,
+      number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -195,12 +195,12 @@ _PERSONNAME = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=244,
-  serialized_end=270,
+  serialized_start=238,
+  serialized_end=264,
 )
 
 
@@ -212,7 +212,7 @@ _ADDRESSBOOK = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='people', full_name='AddressBook.people', index=0,
+      name='person', full_name='AddressBook.person', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -226,12 +226,12 @@ _ADDRESSBOOK = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=272,
-  serialized_end=310,
+  serialized_start=266,
+  serialized_end=304,
 )
 
 
@@ -244,7 +244,7 @@ _PERSONREPLY = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='person', full_name='PersonReply.person', index=0,
-      number=1, type=11, cpp_type=10, label=2,
+      number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -257,12 +257,12 @@ _PERSONREPLY = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=312,
-  serialized_end=350,
+  serialized_start=306,
+  serialized_end=344,
 )
 
 
@@ -275,7 +275,7 @@ _BOOLEANREPLY = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='reply', full_name='BooleanReply.reply', index=0,
-      number=1, type=8, cpp_type=7, label=2,
+      number=1, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -288,12 +288,12 @@ _BOOLEANREPLY = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=352,
-  serialized_end=381,
+  serialized_start=346,
+  serialized_end=375,
 )
 
 
@@ -306,7 +306,7 @@ _CONTACTSREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='listContacts', full_name='ContactsRequest.listContacts', index=0,
-      number=1, type=8, cpp_type=7, label=2,
+      number=1, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -319,19 +319,19 @@ _CONTACTSREQUEST = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=383,
-  serialized_end=422,
+  serialized_start=377,
+  serialized_end=416,
 )
 
 _PERSON_PHONENUMBER.fields_by_name['type'].enum_type = _PERSON_PHONETYPE
 _PERSON_PHONENUMBER.containing_type = _PERSON
 _PERSON.fields_by_name['phones'].message_type = _PERSON_PHONENUMBER
 _PERSON_PHONETYPE.containing_type = _PERSON
-_ADDRESSBOOK.fields_by_name['people'].message_type = _PERSON
+_ADDRESSBOOK.fields_by_name['person'].message_type = _PERSON
 _PERSONREPLY.fields_by_name['person'].message_type = _PERSON
 DESCRIPTOR.message_types_by_name['Person'] = _PERSON
 DESCRIPTOR.message_types_by_name['PersonId'] = _PERSONID
@@ -417,28 +417,28 @@ try:
       Args:
         channel: A grpc.Channel.
       """
-      self.addPerson = channel.unary_unary(
-          '/Manager/addPerson',
+      self.AddPerson = channel.unary_unary(
+          '/Manager/AddPerson',
           request_serializer=Person.SerializeToString,
           response_deserializer=BooleanReply.FromString,
           )
-      self.delPerson = channel.unary_unary(
-          '/Manager/delPerson',
+      self.DelPerson = channel.unary_unary(
+          '/Manager/DelPerson',
           request_serializer=PersonId.SerializeToString,
           response_deserializer=BooleanReply.FromString,
           )
-      self.searchPersonName = channel.unary_stream(
-          '/Manager/searchPersonName',
+      self.SearchPersonName = channel.unary_stream(
+          '/Manager/SearchPersonName',
           request_serializer=PersonName.SerializeToString,
           response_deserializer=AddressBook.FromString,
           )
-      self.searchPersonId = channel.unary_unary(
-          '/Manager/searchPersonId',
+      self.SearchPersonId = channel.unary_unary(
+          '/Manager/SearchPersonId',
           request_serializer=PersonId.SerializeToString,
           response_deserializer=PersonReply.FromString,
           )
-      self.listContacts = channel.unary_stream(
-          '/Manager/listContacts',
+      self.ListContacts = channel.unary_stream(
+          '/Manager/ListContacts',
           request_serializer=ContactsRequest.SerializeToString,
           response_deserializer=AddressBook.FromString,
           )
@@ -446,27 +446,27 @@ try:
 
   class ManagerServicer(object):
 
-    def addPerson(self, request, context):
+    def AddPerson(self, request, context):
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
-    def delPerson(self, request, context):
+    def DelPerson(self, request, context):
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
-    def searchPersonName(self, request, context):
+    def SearchPersonName(self, request, context):
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
-    def searchPersonId(self, request, context):
+    def SearchPersonId(self, request, context):
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
-    def listContacts(self, request, context):
+    def ListContacts(self, request, context):
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
@@ -474,28 +474,28 @@ try:
 
   def add_ManagerServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        'addPerson': grpc.unary_unary_rpc_method_handler(
-            servicer.addPerson,
+        'AddPerson': grpc.unary_unary_rpc_method_handler(
+            servicer.AddPerson,
             request_deserializer=Person.FromString,
             response_serializer=BooleanReply.SerializeToString,
         ),
-        'delPerson': grpc.unary_unary_rpc_method_handler(
-            servicer.delPerson,
+        'DelPerson': grpc.unary_unary_rpc_method_handler(
+            servicer.DelPerson,
             request_deserializer=PersonId.FromString,
             response_serializer=BooleanReply.SerializeToString,
         ),
-        'searchPersonName': grpc.unary_stream_rpc_method_handler(
-            servicer.searchPersonName,
+        'SearchPersonName': grpc.unary_stream_rpc_method_handler(
+            servicer.SearchPersonName,
             request_deserializer=PersonName.FromString,
             response_serializer=AddressBook.SerializeToString,
         ),
-        'searchPersonId': grpc.unary_unary_rpc_method_handler(
-            servicer.searchPersonId,
+        'SearchPersonId': grpc.unary_unary_rpc_method_handler(
+            servicer.SearchPersonId,
             request_deserializer=PersonId.FromString,
             response_serializer=PersonReply.SerializeToString,
         ),
-        'listContacts': grpc.unary_stream_rpc_method_handler(
-            servicer.listContacts,
+        'ListContacts': grpc.unary_stream_rpc_method_handler(
+            servicer.ListContacts,
             request_deserializer=ContactsRequest.FromString,
             response_serializer=AddressBook.SerializeToString,
         ),
@@ -511,15 +511,15 @@ try:
     It is recommended to use the GA API (classes and functions in this
     file not marked beta) for all further purposes. This class was generated
     only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    def addPerson(self, request, context):
+    def AddPerson(self, request, context):
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def delPerson(self, request, context):
+    def DelPerson(self, request, context):
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def searchPersonName(self, request, context):
+    def SearchPersonName(self, request, context):
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def searchPersonId(self, request, context):
+    def SearchPersonId(self, request, context):
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def listContacts(self, request, context):
+    def ListContacts(self, request, context):
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
@@ -529,18 +529,18 @@ try:
     It is recommended to use the GA API (classes and functions in this
     file not marked beta) for all further purposes. This class was generated
     only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    def addPerson(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+    def AddPerson(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       raise NotImplementedError()
-    addPerson.future = None
-    def delPerson(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+    AddPerson.future = None
+    def DelPerson(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       raise NotImplementedError()
-    delPerson.future = None
-    def searchPersonName(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+    DelPerson.future = None
+    def SearchPersonName(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       raise NotImplementedError()
-    def searchPersonId(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+    def SearchPersonId(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       raise NotImplementedError()
-    searchPersonId.future = None
-    def listContacts(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+    SearchPersonId.future = None
+    def ListContacts(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       raise NotImplementedError()
 
 
@@ -551,25 +551,25 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
-      ('Manager', 'addPerson'): Person.FromString,
-      ('Manager', 'delPerson'): PersonId.FromString,
-      ('Manager', 'listContacts'): ContactsRequest.FromString,
-      ('Manager', 'searchPersonId'): PersonId.FromString,
-      ('Manager', 'searchPersonName'): PersonName.FromString,
+      ('Manager', 'AddPerson'): Person.FromString,
+      ('Manager', 'DelPerson'): PersonId.FromString,
+      ('Manager', 'ListContacts'): ContactsRequest.FromString,
+      ('Manager', 'SearchPersonId'): PersonId.FromString,
+      ('Manager', 'SearchPersonName'): PersonName.FromString,
     }
     response_serializers = {
-      ('Manager', 'addPerson'): BooleanReply.SerializeToString,
-      ('Manager', 'delPerson'): BooleanReply.SerializeToString,
-      ('Manager', 'listContacts'): AddressBook.SerializeToString,
-      ('Manager', 'searchPersonId'): PersonReply.SerializeToString,
-      ('Manager', 'searchPersonName'): AddressBook.SerializeToString,
+      ('Manager', 'AddPerson'): BooleanReply.SerializeToString,
+      ('Manager', 'DelPerson'): BooleanReply.SerializeToString,
+      ('Manager', 'ListContacts'): AddressBook.SerializeToString,
+      ('Manager', 'SearchPersonId'): PersonReply.SerializeToString,
+      ('Manager', 'SearchPersonName'): AddressBook.SerializeToString,
     }
     method_implementations = {
-      ('Manager', 'addPerson'): face_utilities.unary_unary_inline(servicer.addPerson),
-      ('Manager', 'delPerson'): face_utilities.unary_unary_inline(servicer.delPerson),
-      ('Manager', 'listContacts'): face_utilities.unary_stream_inline(servicer.listContacts),
-      ('Manager', 'searchPersonId'): face_utilities.unary_unary_inline(servicer.searchPersonId),
-      ('Manager', 'searchPersonName'): face_utilities.unary_stream_inline(servicer.searchPersonName),
+      ('Manager', 'AddPerson'): face_utilities.unary_unary_inline(servicer.AddPerson),
+      ('Manager', 'DelPerson'): face_utilities.unary_unary_inline(servicer.DelPerson),
+      ('Manager', 'ListContacts'): face_utilities.unary_stream_inline(servicer.ListContacts),
+      ('Manager', 'SearchPersonId'): face_utilities.unary_unary_inline(servicer.SearchPersonId),
+      ('Manager', 'SearchPersonName'): face_utilities.unary_stream_inline(servicer.SearchPersonName),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
     return beta_implementations.server(method_implementations, options=server_options)
@@ -582,25 +582,25 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
-      ('Manager', 'addPerson'): Person.SerializeToString,
-      ('Manager', 'delPerson'): PersonId.SerializeToString,
-      ('Manager', 'listContacts'): ContactsRequest.SerializeToString,
-      ('Manager', 'searchPersonId'): PersonId.SerializeToString,
-      ('Manager', 'searchPersonName'): PersonName.SerializeToString,
+      ('Manager', 'AddPerson'): Person.SerializeToString,
+      ('Manager', 'DelPerson'): PersonId.SerializeToString,
+      ('Manager', 'ListContacts'): ContactsRequest.SerializeToString,
+      ('Manager', 'SearchPersonId'): PersonId.SerializeToString,
+      ('Manager', 'SearchPersonName'): PersonName.SerializeToString,
     }
     response_deserializers = {
-      ('Manager', 'addPerson'): BooleanReply.FromString,
-      ('Manager', 'delPerson'): BooleanReply.FromString,
-      ('Manager', 'listContacts'): AddressBook.FromString,
-      ('Manager', 'searchPersonId'): PersonReply.FromString,
-      ('Manager', 'searchPersonName'): AddressBook.FromString,
+      ('Manager', 'AddPerson'): BooleanReply.FromString,
+      ('Manager', 'DelPerson'): BooleanReply.FromString,
+      ('Manager', 'ListContacts'): AddressBook.FromString,
+      ('Manager', 'SearchPersonId'): PersonReply.FromString,
+      ('Manager', 'SearchPersonName'): AddressBook.FromString,
     }
     cardinalities = {
-      'addPerson': cardinality.Cardinality.UNARY_UNARY,
-      'delPerson': cardinality.Cardinality.UNARY_UNARY,
-      'listContacts': cardinality.Cardinality.UNARY_STREAM,
-      'searchPersonId': cardinality.Cardinality.UNARY_UNARY,
-      'searchPersonName': cardinality.Cardinality.UNARY_STREAM,
+      'AddPerson': cardinality.Cardinality.UNARY_UNARY,
+      'DelPerson': cardinality.Cardinality.UNARY_UNARY,
+      'ListContacts': cardinality.Cardinality.UNARY_STREAM,
+      'SearchPersonId': cardinality.Cardinality.UNARY_UNARY,
+      'SearchPersonName': cardinality.Cardinality.UNARY_STREAM,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
     return beta_implementations.dynamic_stub(channel, 'Manager', cardinalities, options=stub_options)

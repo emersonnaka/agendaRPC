@@ -45,35 +45,37 @@ class Manager(agenda_pb2_grpc.ManagerServicer):
     # contactsList = []
 
     def __init__(self):
-        self.contactsList = []
+        self.contactsList = dict()
 
-    def addPerson(self, request, context):
+    def AddPerson(self, request, context):
         if request.id not in self.contactsList:
             print(request)
-            self.contactsList.append(request)
+            self.contactsList[request.id] = request
             return agenda_pb2.BooleanReply(reply = True)
         return agenda_pb2.BooleanReply(reply = False)
 
-    def delPerson(self, request, context):
-        if request in self.contactsList:
-            self.contactsList.remove(request)
+    def DelPerson(self, request, context):
+        if request.id in self.contactsList:
+            print(self.contactsList[request.id])
+            del self.contactsList[request.id]
             return agenda_pb2.BooleanReply(reply = True)
         return agenda_pb2.BooleanReply(reply = False)
 
-    def searchPersonName(self, request, context):
+    def SearchPersonName(self, request, context):
         response = []
         for i in enumerate(self.contactsList):
             if request in self.contactsList[i].name:
                 response.append(self.contactsList[i])
         return response;
 
-    def searchPersonId(self, request, context):
+    def SearchPersonId(self, request, context):
         if request in self.contactsList:
-            return self.contactsList[request]
+            return agenda_pb2.PersonReply(person = self.contactsList[request])
         return None
 
-    def listContacts(self, request, context):
-        for person in self.contactsList:
+    def ListContacts(self, request, context):
+        for person in self.contactsList.values():
+            print(person)
             yield person
 
 def serve():

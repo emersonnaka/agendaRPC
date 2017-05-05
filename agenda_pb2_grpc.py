@@ -12,28 +12,28 @@ class ManagerStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.addPerson = channel.unary_unary(
-        '/Manager/addPerson',
+    self.AddPerson = channel.unary_unary(
+        '/Manager/AddPerson',
         request_serializer=agenda__pb2.Person.SerializeToString,
         response_deserializer=agenda__pb2.BooleanReply.FromString,
         )
-    self.delPerson = channel.unary_unary(
-        '/Manager/delPerson',
+    self.DelPerson = channel.unary_unary(
+        '/Manager/DelPerson',
         request_serializer=agenda__pb2.PersonId.SerializeToString,
         response_deserializer=agenda__pb2.BooleanReply.FromString,
         )
-    self.searchPersonName = channel.unary_stream(
-        '/Manager/searchPersonName',
+    self.SearchPersonName = channel.unary_stream(
+        '/Manager/SearchPersonName',
         request_serializer=agenda__pb2.PersonName.SerializeToString,
         response_deserializer=agenda__pb2.AddressBook.FromString,
         )
-    self.searchPersonId = channel.unary_unary(
-        '/Manager/searchPersonId',
+    self.SearchPersonId = channel.unary_unary(
+        '/Manager/SearchPersonId',
         request_serializer=agenda__pb2.PersonId.SerializeToString,
         response_deserializer=agenda__pb2.PersonReply.FromString,
         )
-    self.listContacts = channel.unary_stream(
-        '/Manager/listContacts',
+    self.ListContacts = channel.unary_stream(
+        '/Manager/ListContacts',
         request_serializer=agenda__pb2.ContactsRequest.SerializeToString,
         response_deserializer=agenda__pb2.AddressBook.FromString,
         )
@@ -41,27 +41,27 @@ class ManagerStub(object):
 
 class ManagerServicer(object):
 
-  def addPerson(self, request, context):
+  def AddPerson(self, request, context):
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def delPerson(self, request, context):
+  def DelPerson(self, request, context):
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def searchPersonName(self, request, context):
+  def SearchPersonName(self, request, context):
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def searchPersonId(self, request, context):
+  def SearchPersonId(self, request, context):
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def listContacts(self, request, context):
+  def ListContacts(self, request, context):
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
@@ -69,28 +69,28 @@ class ManagerServicer(object):
 
 def add_ManagerServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'addPerson': grpc.unary_unary_rpc_method_handler(
-          servicer.addPerson,
+      'AddPerson': grpc.unary_unary_rpc_method_handler(
+          servicer.AddPerson,
           request_deserializer=agenda__pb2.Person.FromString,
           response_serializer=agenda__pb2.BooleanReply.SerializeToString,
       ),
-      'delPerson': grpc.unary_unary_rpc_method_handler(
-          servicer.delPerson,
+      'DelPerson': grpc.unary_unary_rpc_method_handler(
+          servicer.DelPerson,
           request_deserializer=agenda__pb2.PersonId.FromString,
           response_serializer=agenda__pb2.BooleanReply.SerializeToString,
       ),
-      'searchPersonName': grpc.unary_stream_rpc_method_handler(
-          servicer.searchPersonName,
+      'SearchPersonName': grpc.unary_stream_rpc_method_handler(
+          servicer.SearchPersonName,
           request_deserializer=agenda__pb2.PersonName.FromString,
           response_serializer=agenda__pb2.AddressBook.SerializeToString,
       ),
-      'searchPersonId': grpc.unary_unary_rpc_method_handler(
-          servicer.searchPersonId,
+      'SearchPersonId': grpc.unary_unary_rpc_method_handler(
+          servicer.SearchPersonId,
           request_deserializer=agenda__pb2.PersonId.FromString,
           response_serializer=agenda__pb2.PersonReply.SerializeToString,
       ),
-      'listContacts': grpc.unary_stream_rpc_method_handler(
-          servicer.listContacts,
+      'ListContacts': grpc.unary_stream_rpc_method_handler(
+          servicer.ListContacts,
           request_deserializer=agenda__pb2.ContactsRequest.FromString,
           response_serializer=agenda__pb2.AddressBook.SerializeToString,
       ),
