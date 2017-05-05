@@ -24,6 +24,10 @@ Esta tarefa foi implementada em Python3.
 Para compilar o arquivo ".proto" entre na pasta pelo terminal e execute:
 * python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. agenda.proto
 
+Para utilizar:
+1. Execute o servidor: python3 server.py
+2. Execute o cliente: python3 client.py
+
 Alunos
 ------
 Emerson Yudi Nakashima 1451600
