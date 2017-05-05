@@ -70,27 +70,32 @@ def run():
         
         if option == 1:
             person = inputPerson()
-            if stub.AddPerson(person):
+            response = stub.AddPerson(person)
+            if response.reply:
                 print('Contato inserido com sucesso!')
             else:
-                print('Falhou')
+                print('Contato não foi inserido!')
         elif option == 2:
             identifier = int(input('Insira o id do contato: '))
             response = stub.DelPerson(agenda_pb2.PersonId(id = identifier))
-            if response:
+            if response.reply:
                 print('Contato removido com sucesso!')
             else:
-                print('Falhou')
+                print('Contato inexistente')
         elif option == 3:
             identifier = int(input('Insira o id do contato: '))
             response = stub.SearchPersonId(agenda_pb2.PersonId(id = identifier))
             if response != None:
                 print(response)
+            else:
+                print('Contato inexistente')
         elif option == 4:
-            print('Implementar')
+            name = input('Insira o nome do contato: ')
+            contactslist = stub.SearchPersonName(agenda_pb2.PersonName(name = name))
+            for person in contactslist:
+                print(person)
         elif option == 5:
             contactslist = stub.ListContacts(agenda_pb2.ContactsRequest(listContacts = True))
-            print(contactslist)
             for person in contactslist:
                 print(person)
 

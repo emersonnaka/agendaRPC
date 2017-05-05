@@ -1,12 +1,12 @@
-// python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. agenda.proto
+// python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. agenda.proto
 syntax = "proto3";
 
 service Manager {
     rpc AddPerson(Person) returns (BooleanReply) {}
     rpc DelPerson(PersonId) returns (BooleanReply) {}
-    rpc SearchPersonName(PersonName) returns (stream AddressBook) {}
+    rpc SearchPersonName(PersonName) returns (stream Person) {}
     rpc SearchPersonId(PersonId) returns (PersonReply) {}
-    rpc ListContacts(ContactsRequest) returns (stream AddressBook) {}
+    rpc ListContacts(ContactsRequest) returns (stream Person) {}
 }
 
 message Person {
@@ -34,10 +34,6 @@ message PersonId {
 
 message PersonName {
     string name = 1;
-}
-
-message AddressBook {
-    repeated Person person = 1;
 }
 
 message PersonReply {

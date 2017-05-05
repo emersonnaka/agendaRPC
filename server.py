@@ -63,19 +63,17 @@ class Manager(agenda_pb2_grpc.ManagerServicer):
 
     def SearchPersonName(self, request, context):
         response = []
-        for i in enumerate(self.contactsList):
-            if request in self.contactsList[i].name:
-                response.append(self.contactsList[i])
-        return response;
+        for person in self.contactsList.values():
+            if request.name in person.name:
+                yield person
 
     def SearchPersonId(self, request, context):
         if request.id in self.contactsList:
             return agenda_pb2.PersonReply(person = self.contactsList[request.id])
-        return None
+        return agenda_pb2.PersonReply(person = None)
 
     def ListContacts(self, request, context):
         for person in self.contactsList.values():
-            print(person)
             yield person
 
 def serve():

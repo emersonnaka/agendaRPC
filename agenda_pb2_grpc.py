@@ -25,7 +25,7 @@ class ManagerStub(object):
     self.SearchPersonName = channel.unary_stream(
         '/Manager/SearchPersonName',
         request_serializer=agenda__pb2.PersonName.SerializeToString,
-        response_deserializer=agenda__pb2.AddressBook.FromString,
+        response_deserializer=agenda__pb2.Person.FromString,
         )
     self.SearchPersonId = channel.unary_unary(
         '/Manager/SearchPersonId',
@@ -35,7 +35,7 @@ class ManagerStub(object):
     self.ListContacts = channel.unary_stream(
         '/Manager/ListContacts',
         request_serializer=agenda__pb2.ContactsRequest.SerializeToString,
-        response_deserializer=agenda__pb2.AddressBook.FromString,
+        response_deserializer=agenda__pb2.Person.FromString,
         )
 
 
@@ -82,7 +82,7 @@ def add_ManagerServicer_to_server(servicer, server):
       'SearchPersonName': grpc.unary_stream_rpc_method_handler(
           servicer.SearchPersonName,
           request_deserializer=agenda__pb2.PersonName.FromString,
-          response_serializer=agenda__pb2.AddressBook.SerializeToString,
+          response_serializer=agenda__pb2.Person.SerializeToString,
       ),
       'SearchPersonId': grpc.unary_unary_rpc_method_handler(
           servicer.SearchPersonId,
@@ -92,7 +92,7 @@ def add_ManagerServicer_to_server(servicer, server):
       'ListContacts': grpc.unary_stream_rpc_method_handler(
           servicer.ListContacts,
           request_deserializer=agenda__pb2.ContactsRequest.FromString,
-          response_serializer=agenda__pb2.AddressBook.SerializeToString,
+          response_serializer=agenda__pb2.Person.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='agenda.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x0c\x61genda.proto\"\xc3\x01\n\x06Person\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\x05\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12#\n\x06phones\x18\x04 \x03(\x0b\x32\x13.Person.PhoneNumber\x1a>\n\x0bPhoneNumber\x12\x0e\n\x06number\x18\x01 \x01(\t\x12\x1f\n\x04type\x18\x02 \x01(\x0e\x32\x11.Person.PhoneType\"+\n\tPhoneType\x12\n\n\x06MOBILE\x10\x00\x12\x08\n\x04HOME\x10\x01\x12\x08\n\x04WORK\x10\x02\"\x16\n\x08PersonId\x12\n\n\x02id\x18\x01 \x01(\x05\"\x1a\n\nPersonName\x12\x0c\n\x04name\x18\x01 \x01(\t\"&\n\x0b\x41\x64\x64ressBook\x12\x17\n\x06person\x18\x01 \x03(\x0b\x32\x07.Person\"&\n\x0bPersonReply\x12\x17\n\x06person\x18\x01 \x01(\x0b\x32\x07.Person\"\x1d\n\x0c\x42ooleanReply\x12\r\n\x05reply\x18\x01 \x01(\x08\"\'\n\x0f\x43ontactsRequest\x12\x14\n\x0clistContacts\x18\x01 \x01(\x08\x32\xed\x01\n\x07Manager\x12%\n\tAddPerson\x12\x07.Person\x1a\r.BooleanReply\"\x00\x12\'\n\tDelPerson\x12\t.PersonId\x1a\r.BooleanReply\"\x00\x12\x31\n\x10SearchPersonName\x12\x0b.PersonName\x1a\x0c.AddressBook\"\x00\x30\x01\x12+\n\x0eSearchPersonId\x12\t.PersonId\x1a\x0c.PersonReply\"\x00\x12\x32\n\x0cListContacts\x12\x10.ContactsRequest\x1a\x0c.AddressBook\"\x00\x30\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x0c\x61genda.proto\"\xc3\x01\n\x06Person\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\x05\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12#\n\x06phones\x18\x04 \x03(\x0b\x32\x13.Person.PhoneNumber\x1a>\n\x0bPhoneNumber\x12\x0e\n\x06number\x18\x01 \x01(\t\x12\x1f\n\x04type\x18\x02 \x01(\x0e\x32\x11.Person.PhoneType\"+\n\tPhoneType\x12\n\n\x06MOBILE\x10\x00\x12\x08\n\x04HOME\x10\x01\x12\x08\n\x04WORK\x10\x02\"\x16\n\x08PersonId\x12\n\n\x02id\x18\x01 \x01(\x05\"\x1a\n\nPersonName\x12\x0c\n\x04name\x18\x01 \x01(\t\"&\n\x0bPersonReply\x12\x17\n\x06person\x18\x01 \x01(\x0b\x32\x07.Person\"\x1d\n\x0c\x42ooleanReply\x12\r\n\x05reply\x18\x01 \x01(\x08\"\'\n\x0f\x43ontactsRequest\x12\x14\n\x0clistContacts\x18\x01 \x01(\x08\x32\xe3\x01\n\x07Manager\x12%\n\tAddPerson\x12\x07.Person\x1a\r.BooleanReply\"\x00\x12\'\n\tDelPerson\x12\t.PersonId\x1a\r.BooleanReply\"\x00\x12,\n\x10SearchPersonName\x12\x0b.PersonName\x1a\x07.Person\"\x00\x30\x01\x12+\n\x0eSearchPersonId\x12\t.PersonId\x1a\x0c.PersonReply\"\x00\x12-\n\x0cListContacts\x12\x10.ContactsRequest\x1a\x07.Person\"\x00\x30\x01\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -204,37 +204,6 @@ _PERSONNAME = _descriptor.Descriptor(
 )
 
 
-_ADDRESSBOOK = _descriptor.Descriptor(
-  name='AddressBook',
-  full_name='AddressBook',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='person', full_name='AddressBook.person', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=266,
-  serialized_end=304,
-)
-
-
 _PERSONREPLY = _descriptor.Descriptor(
   name='PersonReply',
   full_name='PersonReply',
@@ -261,8 +230,8 @@ _PERSONREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=306,
-  serialized_end=344,
+  serialized_start=266,
+  serialized_end=304,
 )
 
 
@@ -292,8 +261,8 @@ _BOOLEANREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=346,
-  serialized_end=375,
+  serialized_start=306,
+  serialized_end=335,
 )
 
 
@@ -323,20 +292,18 @@ _CONTACTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=377,
-  serialized_end=416,
+  serialized_start=337,
+  serialized_end=376,
 )
 
 _PERSON_PHONENUMBER.fields_by_name['type'].enum_type = _PERSON_PHONETYPE
 _PERSON_PHONENUMBER.containing_type = _PERSON
 _PERSON.fields_by_name['phones'].message_type = _PERSON_PHONENUMBER
 _PERSON_PHONETYPE.containing_type = _PERSON
-_ADDRESSBOOK.fields_by_name['person'].message_type = _PERSON
 _PERSONREPLY.fields_by_name['person'].message_type = _PERSON
 DESCRIPTOR.message_types_by_name['Person'] = _PERSON
 DESCRIPTOR.message_types_by_name['PersonId'] = _PERSONID
 DESCRIPTOR.message_types_by_name['PersonName'] = _PERSONNAME
-DESCRIPTOR.message_types_by_name['AddressBook'] = _ADDRESSBOOK
 DESCRIPTOR.message_types_by_name['PersonReply'] = _PERSONREPLY
 DESCRIPTOR.message_types_by_name['BooleanReply'] = _BOOLEANREPLY
 DESCRIPTOR.message_types_by_name['ContactsRequest'] = _CONTACTSREQUEST
@@ -369,13 +336,6 @@ PersonName = _reflection.GeneratedProtocolMessageType('PersonName', (_message.Me
   # @@protoc_insertion_point(class_scope:PersonName)
   ))
 _sym_db.RegisterMessage(PersonName)
-
-AddressBook = _reflection.GeneratedProtocolMessageType('AddressBook', (_message.Message,), dict(
-  DESCRIPTOR = _ADDRESSBOOK,
-  __module__ = 'agenda_pb2'
-  # @@protoc_insertion_point(class_scope:AddressBook)
-  ))
-_sym_db.RegisterMessage(AddressBook)
 
 PersonReply = _reflection.GeneratedProtocolMessageType('PersonReply', (_message.Message,), dict(
   DESCRIPTOR = _PERSONREPLY,
@@ -430,7 +390,7 @@ try:
       self.SearchPersonName = channel.unary_stream(
           '/Manager/SearchPersonName',
           request_serializer=PersonName.SerializeToString,
-          response_deserializer=AddressBook.FromString,
+          response_deserializer=Person.FromString,
           )
       self.SearchPersonId = channel.unary_unary(
           '/Manager/SearchPersonId',
@@ -440,7 +400,7 @@ try:
       self.ListContacts = channel.unary_stream(
           '/Manager/ListContacts',
           request_serializer=ContactsRequest.SerializeToString,
-          response_deserializer=AddressBook.FromString,
+          response_deserializer=Person.FromString,
           )
 
 
@@ -487,7 +447,7 @@ try:
         'SearchPersonName': grpc.unary_stream_rpc_method_handler(
             servicer.SearchPersonName,
             request_deserializer=PersonName.FromString,
-            response_serializer=AddressBook.SerializeToString,
+            response_serializer=Person.SerializeToString,
         ),
         'SearchPersonId': grpc.unary_unary_rpc_method_handler(
             servicer.SearchPersonId,
@@ -497,7 +457,7 @@ try:
         'ListContacts': grpc.unary_stream_rpc_method_handler(
             servicer.ListContacts,
             request_deserializer=ContactsRequest.FromString,
-            response_serializer=AddressBook.SerializeToString,
+            response_serializer=Person.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -560,9 +520,9 @@ try:
     response_serializers = {
       ('Manager', 'AddPerson'): BooleanReply.SerializeToString,
       ('Manager', 'DelPerson'): BooleanReply.SerializeToString,
-      ('Manager', 'ListContacts'): AddressBook.SerializeToString,
+      ('Manager', 'ListContacts'): Person.SerializeToString,
       ('Manager', 'SearchPersonId'): PersonReply.SerializeToString,
-      ('Manager', 'SearchPersonName'): AddressBook.SerializeToString,
+      ('Manager', 'SearchPersonName'): Person.SerializeToString,
     }
     method_implementations = {
       ('Manager', 'AddPerson'): face_utilities.unary_unary_inline(servicer.AddPerson),
@@ -591,9 +551,9 @@ try:
     response_deserializers = {
       ('Manager', 'AddPerson'): BooleanReply.FromString,
       ('Manager', 'DelPerson'): BooleanReply.FromString,
-      ('Manager', 'ListContacts'): AddressBook.FromString,
+      ('Manager', 'ListContacts'): Person.FromString,
       ('Manager', 'SearchPersonId'): PersonReply.FromString,
-      ('Manager', 'SearchPersonName'): AddressBook.FromString,
+      ('Manager', 'SearchPersonName'): Person.FromString,
     }
     cardinalities = {
       'AddPerson': cardinality.Cardinality.UNARY_UNARY,
